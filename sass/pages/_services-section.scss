@@ -1,0 +1,105 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.services {
+    padding: functions.rem(130.45, variables.$default) functions.rem(80, variables.$default) 0;
+
+    &__wrapper {
+        padding: functions.rem(100, variables.$default) functions.rem(85, variables.$default) 0;
+        border-radius: functions.rem(10, variables.$default);
+        background-color: variables.$services__wrap-bg;
+
+        h2 {
+            text-align: center;
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            color: variables.$hero-section__color;
+            font-size: functions.rem(40, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(48, variables.$default);
+        }
+        h2 ~ p {
+            width: functions.rem(540, variables.$default);
+            margin: functions.rem(32, variables.$default) auto 0;
+            text-align: center;
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            color: variables.$hero-section__color;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            opacity: 0.8;
+        }
+    }
+
+    &__card-wrap {
+        position: relative;
+        top: functions.rem(86, variables.$default);
+        @include mixins.flexbox;
+        justify-content: space-between;
+    }
+
+    &__card {
+        padding: functions.rem(72, variables.$default) functions.rem(48, variables.$default) functions.rem(48, variables.$default) functions.rem(47, variables.$default);
+        text-align: center;
+        border-radius: functions.rem(10, variables.$default);
+        background-color: variables.$services__card-bg;
+
+        h3 {
+            margin: functions.rem(56, variables.$default) 0 functions.rem(24, variables.$default);
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            color: variables.$hero-section__color;
+            font-size: functions.rem(24, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(32, variables.$default);
+        }
+        p {
+            width: functions.rem(255, variables.$default);
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            color: variables.$hero-section__color;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            opacity: 0.8;
+        }
+    }
+
+    &__card:last-child {
+        img {
+            margin-top: functions.rem(22, variables.$default);
+        }
+    } 
+}
+
+@include mixins.media-sm {
+    .services {
+        padding: functions.rem(120, variables.$default) functions.rem(24, variables.$default) 0;
+
+        &__wrapper {
+            height: functions.rem(943, variables.$default);
+            padding: functions.rem(64, variables.$default) functions.rem(24, variables.$default) 0;
+            
+            h2 {
+                font-size: functions.rem(28, variables.$default);
+                line-height: functions.rem(28, variables.$default);
+            }
+
+            h2 ~ p {
+                width: functions.rem(279, variables.$default);
+                font-size: functions.rem(15, variables.$default);
+                font-weight: 400;
+                line-height: functions.rem(25, variables.$default);
+            }
+        }
+
+        &__card-wrap {
+            top: functions.rem(64, variables.$default);
+            gap: functions.rem(24, variables.$default);
+            flex-direction: column;
+        }
+
+        &__card {
+            padding: functions.rem(72, variables.$default) functions.rem(12, variables.$default) functions.rem(51, variables.$default);
+        }
+    }
+}

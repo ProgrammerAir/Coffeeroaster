@@ -1,1 +1,37 @@
 // header qismi
+@use "../abstract/variables";
+@use "../abstract/mixins";
+@use "../abstract/functions";
+@use "sass:map";
+
+.header {
+    @include mixins.flexbox;
+    justify-content: space-between;
+    padding: functions.rem(43.56, variables.$default) functions.rem(80, variables.$default) 0 functions.rem(80.1, variables.$default);
+
+    a[media-sm] {
+        display: none;
+        img {
+            display: none;
+        }
+    }
+}
+
+@include mixins.media-sm {
+    .header {
+        flex-direction: row-reverse;
+        padding: functions.rem(32, variables.$default) functions.rem(24, variables.$default) 0;
+
+        nav {
+            display: none;
+        }
+
+        a[media-sm] {
+            text-decoration: none;
+            display: block;
+            img {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,1 +1,18 @@
 // bu yerda proyectdagi barcha o'zgaruvchilar yozib boriladi.
+@use "sass:map";
+$font-familes: (
+    "Barlow": Barlow,
+    "Fraunces": Fraunces, 
+);
+$default: 16;
+$anchor-color: #83888F;
+$main-color: #333D4B;
+
+// _hero-section variables
+$hero-section__color: #FEFCF7; 
+$btn-bg: #66D2CF;
+$btn-media-sm: #0E8784; 
+
+// _services-section variables
+$services__wrap-bg: #272E37;
+$services__card-bg: #0E8784;

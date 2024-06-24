@@ -1,0 +1,126 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.plan {
+    padding: functions.rem(351, variables.$default) functions.rem(230, variables.$default) 0 functions.rem(165, variables.$default);
+
+    h2 {
+        margin-bottom: functions.rem(80, variables.$default);
+        font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+        color: #83888f;
+        font-size: functions.rem(24, variables.$default);
+        font-weight: 900;
+        line-height: functions.rem(32, variables.$default);
+    }
+
+    &__wrap {
+        @include mixins.flexbox;
+        align-items: center;
+        width: functions.rem(791, variables.$default);
+    }
+
+    &__cirly {
+        width: functions.rem(31, variables.$default);
+        height: functions.rem(31, variables.$default);
+        border-radius: 50%;
+        background: transparent;
+        border: 2px solid #0e8784;
+    }
+
+    &__hr {
+        width: functions.rem(349, variables.$default);
+        border: 2px solid #fdd6ba;
+    }
+
+    &__wrapper {
+        @include mixins.flexbox;
+        justify-content: space-between;
+
+        margin: functions.rem(67, variables.$default) 0 functions.rem(64, variables.$default);
+    }
+
+    &__card {
+        span {
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(72, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(72, variables.$default);
+            color: #fdd6ba;
+        }
+
+        h5 {
+            width: functions.rem(255, variables.$default);
+            margin: functions.rem(38, variables.$default) 0 functions.rem(42, variables.$default);
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(32, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(36, variables.$default);
+            color: variables.$main-color;
+        }
+
+        p {
+            width: functions.rem(285, variables.$default);
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            color: variables.$main-color;
+        }
+    }
+}
+
+.create__plan {
+    padding: functions.rem(168, variables.$default) functions.rem(80, variables.$default) 0;
+
+    .create__wrapper {
+        padding: functions.rem(100, variables.$default) functions.rem(150, variables.$default) functions.rem(99, variables.$default) functions.rem(80, variables.$default);
+        background-color: #293039;
+        border-radius: functions.rem(10, variables.$default);
+
+        .plan__wrapper {
+            margin-bottom: 0;
+        }
+
+        .plan__card {
+            h5, p{
+                color: variables.$hero-section__color;
+            }
+        }
+    }
+}
+
+@include mixins.media-sm {
+    .plan {
+        padding: functions.rem(717, variables.$default) functions.rem(24, variables.$default) 0;
+        text-align: center;
+
+
+        &__wrap {
+            display: none;
+        }
+
+        &__wrapper {
+            flex-direction: column;
+            gap: functions.rem(56, variables.$default);
+            margin: 0 0 functions.rem(79, variables.$default);
+        }
+
+        &__card {
+            width: 100%;
+
+            h5, p{
+                width: 100%;
+            }
+        }
+    }
+
+    .create__plan {
+        padding: functions.rem(120, variables.$default) 0 0;
+
+        .create__wrapper {
+            padding: functions.rem(80, variables.$default) functions.rem(24, variables.$default) functions.rem(79, variables.$default);
+        }
+    }
+}

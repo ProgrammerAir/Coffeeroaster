@@ -1,0 +1,83 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.collection {
+    padding: functions.rem(136, variables.$default) functions.rem(160, variables.$default) 0 functions.rem(165, variables.$default);
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__element {
+        img {
+            position: relative;
+            z-index: -1;
+        }
+    }
+
+    &__card-wrap {
+        position: relative;
+        bottom: functions.rem(70, variables.$default);
+        @include mixins.flexbox;
+        justify-content: space-between;
+    }
+
+    &__card {
+        text-align: center;
+
+        h4 {
+            margin-top: functions.rem(71.55, variables.$default);
+            margin-bottom: functions.rem(24, variables.$default);
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(24, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(32, variables.$default);
+            color: variables.$main-color;
+        }
+
+        p {
+            width: functions.rem(255, variables.$default);
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+        }
+    }
+}
+
+@include mixins.media-sm {
+    .collection {
+        padding: functions.rem(120, variables.$default) 0 0;
+
+        &__element {
+            img {
+                display: block;
+                width: 95%;
+                margin: 0 auto;
+                height: functions.rem(72, variables.$default);
+                margin-bottom: functions.rem(13, variables.$default);
+            }
+        }
+
+        &__card-wrap {
+            flex-direction: column;
+            bottom: 0;
+        }
+
+        &__card { 
+            p {
+                width: functions.rem(282, variables.$default);
+                font-size: functions.rem(15, variables.$default);
+                margin-bottom: functions.rem(48, variables.$default);
+            }
+        }
+
+        &__card:last-child {
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

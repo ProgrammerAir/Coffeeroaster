@@ -1,0 +1,88 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.headquarters {
+    padding: functions.rem(168, variables.$default) functions.rem(230, variables.$default) 0 functions.rem(165, variables.$default);
+
+    h4 {
+        margin-bottom: functions.rem(72, variables.$default);
+        font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+        font-size: functions.rem(24, variables.$default);
+        font-weight: 900;
+        line-height: functions.rem(32, variables.$default);
+        color: #83888f;
+    }
+
+    &__wrapper {
+        @include mixins.flexbox;
+        justify-content: space-between;
+
+    }
+
+    &__card {
+        width: functions.rem(285, variables.$default);
+
+
+        h3 {
+            margin: functions.rem(45.93, variables.$default) 0 functions.rem(24, variables.$default);
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(32, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(36, variables.$default);
+        }
+
+        ul {
+            @include mixins.flexbox;
+            align-items: start;
+            flex-direction: column;
+            gap: 0;
+            padding: 0;
+            margin: 0;
+
+            li {
+                font-family: map.get(variables.$font-familes, "Barlow"),
+                    sans-serif;
+                font-size: functions.rem(16, variables.$default);
+                font-weight: 400;
+                line-height: functions.rem(26, variables.$default);
+                color: variables.$main-color;
+            }
+        }
+    }
+
+    &__card:last-child {
+        h3 {
+            margin-top: functions.rem(52, variables.$default);
+        }
+    }
+}
+
+@include mixins.media-sm {
+    .headquarters {
+        text-align: center;
+
+        padding: functions.rem(120, variables.$default) functions.rem(24, variables.$default) 0;
+
+        &__wrapper {
+            flex-direction: column;
+            gap: functions.rem(80, variables.$default);
+
+            h3 {
+                font-size: functions.rem(28, variables.$default);
+            }
+
+            ul {
+                width: max-content;
+                margin: 0 auto;
+        
+
+                li {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.hero {
+    padding: functions.rem(43.44, variables.$default) functions.rem(80, variables.$default) 0;
+
+    &__wrapper{
+        border-radius: functions.rem(10, variables.$default);
+        padding: functions.rem(117, variables.$default) 0 functions.rem(116, variables.$default) functions.rem(85, variables.$default);
+        background-image: url("../../images/home-images/_hero-section-images/_hero-section__bg.svg");
+        background-position: center;
+        background-size: cover;
+
+        h1 {
+            width: functions.rem(493, variables.$default);
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(72, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(72, variables.$default);
+            color: variables.$hero-section__color;
+        }
+
+        p {
+            width: functions.rem(445, variables.$default);
+            margin: functions.rem(32, variables.$default) 0 functions.rem(56, variables.$default);
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            color: variables.$hero-section__color;
+            opacity: 0.8;
+        }
+    }
+
+    &__wrap, &__content{
+        background-image: url("../../images/about-us__images/_hero-section__images/_hero__wrap-images.svg");
+
+        p {
+            margin: functions.rem(24, variables.$default) 0 0;
+        }
+    }
+
+    &__content {
+        background-image: url("../../images/create-plan__images/hero-bg/hero-bg.svg");
+    }
+}
+
+@include mixins.media-sm {
+    .hero {
+        padding: functions.rem(40, variables.$default) functions.rem(24, variables.$default) 0;
+
+        &__wrapper {
+            text-align: center;
+            background-image: url(../../images/home-images/_hero-section-images/_hero-section__bg-media-sm.svg);
+            background-position: center;
+            padding: functions.rem(100, variables.$default) functions.rem(24, variables.$default) functions.rem(99, variables.$default);
+
+            h1 {
+                width: functions.rem(279, variables.$default);
+                margin: 0 auto;
+                font-size: functions.rem(40, variables.$default);
+                font-weight: 900;
+                line-height: functions.rem(40, variables.$default);
+                text-align: center;
+            }
+
+            p {
+                width: functions.rem(279, variables.$default);
+                margin: functions.rem(24, variables.$default) auto functions.rem(39, variables.$default);
+                font-size: functions.rem(15, variables.$default);
+                font-weight: 400;
+                line-height: functions.rem(25, variables.$default);
+                text-align: center;
+            }
+
+            .btn {
+                background-color: variables.$btn-media-sm;
+            }
+        }
+
+        &__wrap, &__content{
+            background-image: url("../../images/about-us__images/_hero-section__images/_hero__wrap-images-media-sm.svg");
+            padding: functions.rem(111, variables.$default) functions.rem(24, variables.$default) functions.rem(87, variables.$default);
+
+            p {
+                margin: functions.rem(24, variables.$default) 0 0;
+            }
+        }
+
+        &__content {
+            background-image: url(../../images/create-plan__images/hero-bg/hero-bg-media-sm.svg);
+            padding: functions.rem(101, variables.$default) functions.rem(24, variables.$default) functions.rem(136, variables.$default);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use "../abstract/variables";
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "sass:map";
+ul {
+    @include mixins.flexbox;
+    gap: functions.rem(33, variables.$default);
+    list-style: none;
+
+    li {
+        a {
+            font-family: map.get(variables.$font-familes, "Barlow"),
+                sans-serif;
+            font-size: functions.rem(12, variables.$default);
+            font-weight: 700;
+            line-height: functions.rem(15, variables.$default);
+            letter-spacing: functions.rem(0.9230769276618958, variables.$default);
+            text-decoration: none;
+            text-transform: uppercase;
+            color: variables.$anchor-color;
+        }
+        a:active {
+            color: variables.$main-color;
+        }
+    }
+}

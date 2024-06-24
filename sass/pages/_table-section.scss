@@ -1,0 +1,232 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.table {
+    @include mixins.flexbox;
+    align-items: start;
+    gap: functions.rem(125, variables.$default);
+    padding: functions.rem(168, variables.$default) functions.rem(165, variables.$default) 0;
+
+    &__first {
+        p {
+            margin: 0;
+        }
+    }
+
+    &__data {
+        border-bottom: 1px solid #83888f;
+        opacity: 0.75;
+
+        p {
+            @include mixins.flexbox;
+            gap: functions.rem(28.5, variables.$default);
+            margin: functions.rem(24, variables.$default) functions.rem(44, variables.$default) functions.rem(24, variables.$default) 0;
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(24, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(32, variables.$default);
+            color: #333d4b;
+            opacity: 0.33;
+
+            span {
+                color: #333d4b;
+                opacity: 0.33;
+            }
+        }
+
+        p:hover {
+            opacity: 0.66;
+            span {
+                opacity: 0.66;
+            }
+        }
+
+        p:active {
+            opacity: 1;
+            span {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__data:first-child {
+        p {
+            margin-top: 0;
+            span {
+                color: #0e8784;
+            }
+        }
+    }
+
+    &__second-question {
+        @include mixins.flexbox;
+        flex-direction: column;
+        gap: functions.rem(88, variables.$default);
+        margin-bottom: functions.rem(88, variables.$default);
+    }
+
+    &__second__wrapper {
+        width: functions.rem(730, variables.$default);
+    }
+
+    &__question {
+        @include mixins.flexbox;
+        justify-content: space-between;
+        margin-bottom: functions.rem(56, variables.$default);
+
+        h6 {
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(40, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(48, variables.$default);
+            color: #83888f;
+        }
+    }
+
+    &__card-wrap {
+        @include mixins.flexbox;
+        justify-content: space-between;
+    }
+
+    &__card {
+        padding: functions.rem(32, variables.$default) functions.rem(28, variables.$default) functions.rem(84, variables.$default);
+        border-radius: 10px;
+        background-color: #f4f1eb;
+
+        h3 {
+            margin-bottom: functions.rem(24, variables.$default);
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(24, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(32, variables.$default);
+            color: variables.$main-color;
+        }
+
+        p {
+            width: functions.rem(172, variables.$default);
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            color: variables.$main-color;
+        }
+    }
+
+    &__card:hover {
+        background-color: #fdd6ba;
+    }
+
+    &__card:active,
+    &__card.active {
+        background-color: #0e8784;
+
+        h3 {
+            color: #fff;
+        }
+
+        p {
+            color: #fefcf7;
+        }
+    }
+
+    &__comment-page {
+        width: functions.rem(737, variables.$default);
+        padding: functions.rem(27, variables.$default) functions.rem(64, variables.$default);
+        border-radius: functions.rem(10, variables.$default);
+        margin-bottom: functions.rem(40, variables.$default);
+        background: #282f38;
+
+        h6 {
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            color: #94979c;
+        }
+
+        q {
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(24, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(40, variables.$default);
+            text-align: left;
+            color: #fff;
+
+            span {
+                color: #0e8784;
+            }
+        }
+    }
+
+    &__button {
+        text-align: right;
+    }
+}
+
+@include mixins.media-sm {
+    .table {
+        padding: functions.rem(120, variables.$default) functions.rem(24, variables.$default) 0;
+
+        &__first {
+            display: none;
+        }
+
+        &__second-question,
+        &__second{
+            width: 100%;
+        }
+
+        &__second-question {
+            margin-bottom: functions.rem(120, variables.$default);
+        }
+
+        &__second__wrapper {
+            width: 100%;
+        }
+
+        &__question {
+            gap: functions.rem(69, variables.$default);
+            margin-bottom: functions.rem(32, variables.$default);
+
+            h6 {
+                width: functions.rem(240, variables.$default);
+                font-size: functions.rem(24, variables.$default);
+                line-height: functions.rem(28, variables.$default);
+            }
+        }
+
+        &__card-wrap {
+            gap: functions.rem(16, variables.$default);
+            flex-direction: column;
+        }
+
+        &__card {
+            width: 100%;
+            padding: functions.rem(24, variables.$default) functions.rem(25, variables.$default);
+
+            h3 {
+                margin-bottom: functions.rem(8, variables.$default);
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        &__comment-page {
+            width: 100%;
+            margin-bottom: functions.rem(56, variables.$default);
+            padding: functions.rem(32, variables.$default) functions.rem(25, variables.$default);
+
+            h6 {
+                margin-bottom: functions.rem(8, variables.$default);
+            }
+        }
+
+        &__button {
+            text-align: center;
+        }
+    }
+}

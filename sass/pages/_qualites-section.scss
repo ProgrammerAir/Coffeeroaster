@@ -1,0 +1,90 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.qualites {
+    padding: functions.rem(256, variables.$default) functions.rem(80, variables.$default) 0;
+
+    &__wrapper {
+        @include mixins.flexbox;
+        justify-content: space-between;
+        padding: 0 functions.rem(85, variables.$default);
+        border-radius: functions.rem(10, variables.$default);
+        background-color: #293039;
+
+        h2 {
+            font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+            font-size: functions.rem(40, variables.$default);
+            font-weight: 900;
+            line-height: functions.rem(48, variables.$default);
+            color: variables.$hero-section__color;
+        }
+
+        p {
+            width: functions.rem(540, variables.$default);
+            margin: functions.rem(32, variables.$default) 0 0;
+            font-family: map.get(variables.$font-familes, "Barlow"), sans-serif;
+            font-size: functions.rem(16, variables.$default);
+            font-weight: 400;
+            line-height: functions.rem(26, variables.$default);
+            color: variables.$hero-section__color;
+        }
+
+        img {
+            position: relative;
+            bottom: functions.rem(88, variables.$default);
+        }
+    }
+
+    &__media-sm {
+        display: none;
+    }
+}
+
+@include mixins.media-sm {
+    .qualites {
+        padding: functions.rem(198, variables.$default) functions.rem(24, variables.$default) 0;
+
+        &__wrapper {
+            flex-direction: column;
+            gap: 0;
+            padding: 0 functions.rem(24, variables.$default) functions.rem(61, variables.$default);
+
+            img {
+                display: none;
+            }
+        }
+
+        &__media-sm {
+            position: relative;
+            bottom: functions.rem(64, variables.$default);
+            display: block;
+            width: 100%;
+            height: functions.rem(156, variables.$default);
+            border-radius: functions.rem(10, variables.$default);
+            background-image: url(../../images/about-us__images/_qualites-section__images/qualtes__wrapper-images.svg);
+            background-position: bottom;
+            background-size: cover;
+        }
+
+        &__content {
+            width: 100%;
+            text-align: center;
+
+            p {
+                width: 100%;
+                margin-top: functions.rem(24, variables.$default);
+                font-size: functions.rem(15, variables.$default);
+            }
+
+            h2 {
+                width: functions.rem(279, variables.$default);
+                margin: 0 auto;
+                font-size: functions.rem(28, variables.$default);
+                font-weight: 900;
+                line-height: functions.rem(28, variables.$default);
+            }
+        }
+    }
+}

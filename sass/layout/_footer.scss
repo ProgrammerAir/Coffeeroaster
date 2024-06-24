@@ -1,0 +1,68 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "sass:map";
+
+.footer {
+    background-color: variables.$hero-section__color;
+    padding: functions.rem(200, variables.$default) functions.rem(80, variables.$default) functions.rem(135, variables.$default);
+
+    &__wrap {
+        @include mixins.flexbox;
+        justify-content: space-between;
+        padding: functions.rem(47, variables.$default) functions.rem(85, variables.$default);
+        background-color: #2c343e;
+    }
+
+    &__section {
+        @include mixins.flexbox;
+        gap: functions.rem(102.9, variables.$default);
+    }
+
+    ul {
+        li {
+            a:active {
+                color: variables.$hero-section__color;
+            }
+        }
+    }
+
+    &__icons {
+        @include mixins.flexbox;
+        gap: functions.rem(24, variables.$default);
+
+        i {
+            font-size: functions.rem(27, variables.$default);
+            color: #fff;
+        }
+
+        i:active {
+            color: #fdd6ba;
+        }
+    }
+}
+
+@include mixins.media-sm  {
+    .footer {
+        padding: functions.rem(120, variables.$default) functions.rem(24, variables.$default) functions.rem(72, variables.$default);
+
+        &__wrap {
+            flex-direction: column;
+        }
+
+        &__section {
+            gap: functions.rem(48.44, variables.$default);
+            flex-direction: column;
+        }
+
+        ul {
+            padding: 0;
+            margin-bottom: functions.rem(48.56, variables.$default);
+            flex-direction: column;
+
+            li {
+                margin: 0 auto;
+            }
+        }
+    }
+}

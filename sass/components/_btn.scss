@@ -1,0 +1,22 @@
+// bu yerda proyectdagi barcha qaytalanadigan codelar yozib boriladi.
+@use "../abstract/variables";
+@use "../abstract/functions";
+@use "sass:map";
+button.btn {
+    border: none;
+    border-radius: functions.rem(7, variables.$default);
+    background-color: variables.$btn-media-sm;
+
+    a {
+        display: block;
+        padding: functions.rem(15, variables.$default) functions.rem(31, variables.$default) functions.rem(16, variables.$default) functions.rem(31, variables.$default);
+        font-family: map.get(variables.$font-familes, "Fraunces"), serif;
+        font-size: functions.rem(18, variables.$default);
+        font-weight: 900;
+        line-height: functions.rem(25, variables.$default);
+        color: variables.$hero-section__color;
+    }
+    &:active {
+        background-color: variables.$btn-bg;
+    }
+}
